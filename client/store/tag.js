@@ -29,7 +29,7 @@ export const getTags = () => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(
-                "http://localhost:8080/api/taggings/"
+                "https://book-it-web.herokuapp.com/api/taggings/"
             );
             dispatch(_getTags(data));
         } catch (error) {

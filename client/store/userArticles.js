@@ -74,7 +74,7 @@ export const createNewExtensionArticle = (url, name, userId, tags ) => {
     return async (dispatch) => {
         try {
             const { data } = await axios.post(
-                `"http://localhost:8080/api/articles`,
+                `https://book-it-web.herokuapp.com/api/articles`,
                 {
                     article,
                     userId
@@ -92,7 +92,7 @@ export const getExtensionUserArticles = (id) => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(
-                `http://localhost:8080/api/userArticles/${id}`
+                `https://book-it-web.herokuapp.com/api/userArticles/${id}`
             );
             dispatch(_getUserArticles(data));
         } catch (error) {

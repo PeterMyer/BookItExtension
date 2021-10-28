@@ -7,13 +7,15 @@
     "default_popup": "popup.html"
   },
   "host_permissions": [
-    "http://localhost/*"
+    "http://localhost/*",
+    "https://book-it-web.herokuapp.com/*"
   ],
   "permissions": [
     "tabs",
     "webRequest",
     "webRequestBlocking",
     "http://localhost/*",
-    "cookies"
+    "cookies",
+    "https://book-it-web.herokuapp.com/*"
   ]
 }

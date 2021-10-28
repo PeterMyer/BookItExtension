@@ -52,7 +52,7 @@ console.log('tab',tab)
       {/* <form onSubmit={handleSubmit}> */}
       <form
         name="urlPOST"
-        action="http://localhost:8080/api/articles/"
+        action="https://book-it-web.herokuapp.com/api/articles/"
         method="POST"
         target="_self"
       >

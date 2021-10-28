@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTab } from "../store/tab";
 import { getExtensionUserArticles } from "../store/userArticles";
-import { createNewExtensionArticle } from "../store/userArticles";
 import CreatableSelect from 'react-select/creatable';
 import { ActionMeta, OnChangeValue } from 'react-select';
 
@@ -28,17 +27,6 @@ export default () => {
       tagArray.push(options[i].value)}
       setTags(tagArray)
 }
-console.log('tab',tab)
-
-//  const handleSubmit=(event)=> {
-//     event.preventDefault();
-//     console.log('here')
-//     console.log(event)
-//     let userId = user.id;
-//     let article = {url: event.url, tags: event.tags};
-//     article.isPrivate = article.isPrivate === "true";
-//     dispatch(createNewExtensionArticle(article, userId))
-// }
 
   const tagOptions = []
   articles.map((article)=> article.taggings.map((tag) => tagOptions.push({value:tag.tag.name, label:tag.tag.name})))
@@ -51,7 +39,7 @@ console.log('tab',tab)
       {/* <form onSubmit={handleSubmit}> */}
       <form
         name="urlPOST"
-        action="http://localhost:8080/api/articles/"
+        action="https://book-it-web.herokuapp.com/api/articles/"
         method="POST"
         target="_self"
       >

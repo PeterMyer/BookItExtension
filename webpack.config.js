@@ -3,7 +3,6 @@ require('dotenv').config();
 module.exports = {
   mode: process.env.DEV ? 'development' : 'production',
   entry: {
-    bundle: __dirname + '/client/index.js',
     popup: __dirname + '/client/popup/index.js',
   },
   output: {

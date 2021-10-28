@@ -25,7 +25,7 @@ export const me = () => async (dispatch) => {
   if (chrome.cookies) {
     //extension checking for auth cookie
     cookie = await chrome.cookies.get({
-      url: 'http://localhost/*',
+      url: 'https://book-it-web.herokuapp.com/*',
       name: 'auth',
     });
   }
@@ -34,7 +34,7 @@ export const me = () => async (dispatch) => {
   if (token) {
     //checking if cooking found above. If yes we are in extension get user auth info from full localhost api url
     const res = cookie
-      ? await axios.get('http://localhost:8080/auth/me', {
+      ? await axios.get('https://book-it-web.herokuapp.com/auth/me', {
           headers: {
             authorization: token,
           },
@@ -56,7 +56,7 @@ export const authenticate =
       //check if we are in extension
       const res = chrome.cookies
         //yes we are in extension
-        ? await axios.post(`http://localhost:8080/auth/${method}`, {
+        ? await axios.post(`https://book-it-web.herokuapp.com/auth/${method}`, {
             username,
             password,
           })
@@ -66,13 +66,13 @@ export const authenticate =
       if (chrome.cookies) {
          await chrome.cookies.set(
           {
-            url: 'http://localhost/*',
+            url: 'https://book-it-web.herokuapp.com/*',
             name: 'max-age',
             value: '31536000',
           },
           await chrome.cookies.set(
             {
-              url: 'http://localhost/*',
+              url: 'https://book-it-web.herokuapp.com/*',
               name: 'auth',
               value: res.data.token,
             })

@@ -5,21 +5,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import auth from './auth';
 import tab from './tab';
 import userArticlesReducer from './userArticles';
-import tagsReducer from './tag';
-import sharingsReducer from './sharing';
-import singleAuthor from './singleAuthor';
-import ArticlePreview from './SingleArticle';
-import ArticlesReducer from './articles';
 
 const reducer = combineReducers({
   auth,
   tab,
-  singleAuthor,
   userArticles: userArticlesReducer,
-  tags: tagsReducer,
-  sharings: sharingsReducer,
-  metaData: ArticlePreview,
-  allArticles: ArticlesReducer,
 });
 
 const middleware = composeWithDevTools(

@@ -14,8 +14,8 @@
     "tabs",
     "webRequest",
     "webRequestBlocking",
+    "http://localhost/*",
     "cookies",
     "https://book-it-web.herokuapp.com/*"
-
   ]
 }

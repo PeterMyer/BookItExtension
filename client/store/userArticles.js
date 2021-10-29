@@ -2,9 +2,6 @@ import axios from "axios";
 
 //ACTION TYPES
 const GET_USER_ARTICLES = "GET_USER_ARTICLES";
-const CREATE_USER_ARTICLE = "CREATE_USER_ARTICLE";
-const READ_USER_ARTICLE = "READ_USER_ARTICLE";
-const DELETE_USER_ARTICLE = "DELETE_USER_ARTICLE";
 
 //ACTION CREATORS
 //Get all articles for a single user
@@ -12,30 +9,6 @@ const _getUserArticles = (articles) => {
     return {
         type: GET_USER_ARTICLES,
         articles
-    };
-};
-
-// CREATE AN ARTICLE
-const _createUserArticle = (article) => {
-    return {
-        type: CREATE_USER_ARTICLE,
-        article
-    };
-};
-
-// UPDATE THE ARTICLE(MARK AS READ)
-const _readUserArticle = (article) => {
-    return {
-        type: READ_USER_ARTICLE,
-        article
-    };
-};
-
-// DELETE USER ARTICLE
-const _deleteUserArticle = (article) => {
-    return {
-        type: DELETE_USER_ARTICLE,
-        article
     };
 };
 
@@ -153,14 +126,6 @@ export default function userArticleReducer(state = initialState, action) {
     switch (action.type) {
         case GET_USER_ARTICLES:
             return action.articles;
-        case CREATE_USER_ARTICLE:
-            return [...state, action.article];
-        case READ_USER_ARTICLE:
-            return state.map((article) =>
-                article.id === action.article.id ? action.article : article
-            );
-        case DELETE_USER_ARTICLE:
-            return state.filter((article) => article.id !== action.article.id);
         default:
             return state;
     }

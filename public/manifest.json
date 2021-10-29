@@ -1,0 +1,21 @@
+{
+  "name": "book-it",
+  "description": "An article management extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "http://localhost/*",
+    "https://book-it-web.herokuapp.com/*"
+  ],
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "http://localhost/*",
+    "cookies",
+    "https://book-it-web.herokuapp.com/*"
+  ]
+}

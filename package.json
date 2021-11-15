@@ -58,6 +58,8 @@
     "react-select": "^5.1.0",
     "react-toastify": "^8.0.3",
     "sequelize": "^6.7.0",
+    "toast": "^0.3.47",
+    "toastify": "^2.0.1",
     "utf-8-validate": "^5.0.6"
   },
   "devDependencies": {

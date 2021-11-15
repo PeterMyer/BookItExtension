@@ -24,27 +24,32 @@ export const me = () => async (dispatch) => {
   if (chrome.cookies) {
     //extension checking for auth cookie
     cookie = await chrome.cookies.get({
-      url: 'https://book-it-web.herokuapp.com/*',
+      url: 'http://localhost/*',
       name: 'auth',
     });
   }
   //checking if we found a cookie above or not
-  const token = cookie ? cookie.value : document.cookie.split('; ').find(row => row.startsWith('auth=')).split('=')[1]
+  const token = cookie
+    ? cookie.value
+    : document.cookie
+        .split('; ')
+        .find((row) => row.startsWith('auth='))
+        .split('=')[1];
   if (token) {
     //checking if cooking found above. If yes we are in extension get user auth info from full localhost api url
     const res = cookie
-      ? await axios.get('https://book-it-web.herokuapp.com/auth/me', {
+      ? await axios.get('http://localhost:8080/auth/me', {
           headers: {
             authorization: token,
           },
         })
-        //if not we are in webapp. Get user auth info from local api route
-      : await axios.get('/auth/me', {
+      : //if not we are in webapp. Get user auth info from local api route
+        await axios.get('/auth/me', {
           headers: {
             authorization: token,
           },
         });
-        //set state with auth info
+    //set state with auth info
     return dispatch(setAuth(res.data));
   }
 };
@@ -54,28 +59,27 @@ export const authenticate =
     try {
       //check if we are in extension
       const res = chrome.cookies
-        //yes we are in extension
-        ? await axios.post(`https://book-it-web.herokuapp.com/auth/${method}`, {
+        ? //yes we are in extension
+          await axios.post(`http://localhost:8080/auth/${method}`, {
             username,
             password,
           })
-          //no we are in webapp
-        : await axios.post(`/auth/${method}`, { username, password });
+        : //no we are in webapp
+          await axios.post(`/auth/${method}`, { username, password });
       //check if we are in extension. If so submit cookies to localhost, logging us in
       if (chrome.cookies) {
-         await chrome.cookies.set(
+        await chrome.cookies.set(
           {
-            url: 'https://book-it-web.herokuapp.com/*',
+            url: 'http://localhost/*',
             name: 'max-age',
             value: '31536000',
           },
-          await chrome.cookies.set(
-            {
-              url: 'https://book-it-web.herokuapp.com/*',
-              name: 'auth',
-              value: res.data.token,
-            })
-        )
+          await chrome.cookies.set({
+            url: 'http://localhost/*',
+            name: 'auth',
+            value: res.data.token,
+          })
+        );
       } else {
         //if not in extension set cookies directly with document.cookie
         window.localStorage.setItem(TOKEN, res.data.token);

@@ -68,8 +68,8 @@ export default () => {
   );
 
   return (
-    <div>
-      <h3 align="Center">BookIt!</h3>
+    <div className="ext-main-container">
+      <h3 align="center">BookIt!</h3>
       <form onSubmit={submitBookmark}>
         <label htmlFor="url">
           <b>Bookmark URL</b>
@@ -104,12 +104,13 @@ export default () => {
         </label>
         <CreatableSelect
           id="tagsetter"
+          className="select"
           isMulti
           onChange={handleChange}
           options={tagOptions}
         />
         <div>
-          <input type="submit" value="Submit Bookmark" />
+          <input type="submit" value="Submit Bookmark" className="button" />
           <ToastContainer
             position="top-right"
             autoClose={1500}
@@ -123,6 +124,9 @@ export default () => {
           />
         </div>
       </form>
+      <a href="https://book-it-web.herokuapp.com/" target="_blank">
+        Go to BookIt Homepage!
+      </a>
     </div>
   );
 };

@@ -16,7 +16,7 @@ export default () => {
   const user = useSelector((state) => state.auth);
   const articles = useSelector((state) => state.userArticles);
   const dispatch = useDispatch();
-  const [tags, setTags] = useState('');
+  const [tags, setTags] = useState([]);
   const [bookmarkName, setBookmarkName] = useState('');
   const [note, setNote] = useState('');
 
@@ -51,18 +51,27 @@ export default () => {
   const submitBookmark = useCallback(
     async (event) => {
       event.preventDefault();
-      await createNewExtensionArticle(
-        tab.url,
-        bookmarkName,
-        note,
-        user.id,
-        tags
-      );
-      toast('Bookmark Added!', {
-        onClose: () => {
-          window.close();
-        },
-      });
+      const errCallback = () => toast('Something went wrong!');
+      try {
+        let result = await createNewExtensionArticle(
+          tab.url,
+          bookmarkName,
+          note,
+          user.id,
+          tags
+        );
+        if (result.status === 201) {
+          toast('Bookmark Added!', {
+            onClose: () => {
+              window.close();
+            },
+          });
+        } else {
+          errCallback();
+        }
+      } catch (err) {
+        errCallback();
+      }
     },
     [tab, bookmarkName, note, tags]
   );
@@ -117,7 +126,7 @@ export default () => {
           <input type="submit" value="Submit Bookmark" className="button" />
           <ToastContainer
             position="top-right"
-            autoClose={1500}
+            autoClose={2000}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick

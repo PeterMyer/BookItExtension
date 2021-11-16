@@ -9,22 +9,29 @@ const AuthForm = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <div>
+    <div className="ext-main-container">
+      <img
+        src="https://raw.githubusercontent.com/Yoshi-s-Yodelers/BookItExtension/dev/public/main-transparent.png"
+        width="60%"
+        style={{ display: 'block', margin: '0 auto' }}
+      />
       <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="username">
-            <small>Username</small>
+            <b>Username</b>
           </label>
           <input name="username" type="text" />
         </div>
         <div>
           <label htmlFor="password">
-            <small>Password</small>
+            <b>Password</b>
           </label>
           <input name="password" type="password" />
         </div>
         <div>
-          <button type="submit">{displayName}</button>
+          <button className="button" type="submit">
+            {displayName}
+          </button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>

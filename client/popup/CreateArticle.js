@@ -69,7 +69,11 @@ export default () => {
 
   return (
     <div className="ext-main-container">
-      <h3 align="center">BookIt!</h3>
+      <img
+        src="https://raw.githubusercontent.com/Yoshi-s-Yodelers/BookItExtension/dev/public/main-transparent.png"
+        width="60%"
+        style={{ display: 'block', margin: '0 auto' }}
+      />
       <form onSubmit={submitBookmark}>
         <label htmlFor="url">
           <b>Bookmark URL</b>

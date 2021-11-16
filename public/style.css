@@ -540,7 +540,7 @@ tr {
   color: #364c63;
   /* margin: 5px; */
   background-color: #f2f2f2;
-  padding: 20px;
+  padding: 15px;
   border-radius: 4px;
   /* height: 100px; */
   /* margin-top: -1px; */
@@ -558,8 +558,22 @@ input[type='text'] {
   font-size: medium;
 }
 
+input[type='password'] {
+  /* width: 100%; */
+  padding: 6px 10px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  border: 1px solid #364c63;
+  border-radius: 4px;
+  font-family: 'Vesper Libre bold';
+  color: #364c63;
+  font-size: medium;
+}
+
 label {
-  padding-bottom: 20px;
+  display: block;
+  margin-bottom: 3px;
+  margin-top: 7px;
 }
 
 .select {
@@ -568,7 +582,7 @@ label {
 }
 
 .button {
-  background-color: #f14a65;
+  background-color: #f14a6585;
   font-family: 'Vesper Libre bold';
   color: #364c63;
   /* border: 1px solid #364c63; */

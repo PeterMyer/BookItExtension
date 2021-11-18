@@ -60,7 +60,7 @@ export default () => {
           user.id,
           tags
         );
-        if (result.status === 201) {
+        if (result.status === 201 || result.status === 200) {
           toast('Bookmark Added!', {
             onClose: () => {
               window.close();

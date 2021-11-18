@@ -16,7 +16,7 @@ const _getUserArticles = (articles) => {
 
 // CREATE A SINGLE Extension ARTICLE
 export const createNewExtensionArticle = (url, name, note, userId, tags) => {
-  return axios.post(`http://localhost:8080/api/articles`, {
+  return axios.post(`${process.env.API_URL}api/articles`, {
     article: { url: url, name: name, note: note, tags: tags },
     userId,
   });
@@ -27,7 +27,7 @@ export const getExtensionUserArticles = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/api/userArticles/${id}`
+        `${process.env.API_URL}api/userArticles/${id}`
       );
       dispatch(_getUserArticles(data));
     } catch (error) {

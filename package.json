@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "webpack",
-    "build:dev": "npm run build -- --watch --mode=development",
+    "build:dev": "npm run build -- --watch --mode=development --env=file=development",
+    "build:prod": "npm run build -- --mode=production",
     "seed": "node script/seed.js",
     "dvSeed": "node script/dvSeed.js",
     "start": "node server",
@@ -58,6 +59,8 @@
     "react-select": "^5.1.0",
     "react-toastify": "^8.0.3",
     "sequelize": "^6.7.0",
+    "toast": "^0.3.47",
+    "toastify": "^2.0.1",
     "utf-8-validate": "^5.0.6"
   },
   "devDependencies": {
@@ -69,6 +72,7 @@
     "babel-loader": "^8.2.2",
     "chai": "^4.2.0",
     "css-loader": "^6.4.0",
+    "dotenv-webpack": "^7.0.3",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "esm": "^3.2.25",

@@ -79,7 +79,7 @@ export default () => {
   return (
     <div className="ext-main-container">
       <img
-        src="https://raw.githubusercontent.com/Yoshi-s-Yodelers/BookItExtension/dev/public/main-transparent.png"
+        src="https://raw.githubusercontent.com/Yoshi-s-Yodelers/BookItExtension/main/public/main-transparent.png"
         width="60%"
         style={{ display: 'block', margin: '0 auto' }}
       />

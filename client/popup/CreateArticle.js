@@ -33,6 +33,7 @@ export default () => {
     }
   }, [dispatch, tab]);
 
+  //tracks current tags list
   function handleChange(options) {
     let tagArray = [];
     for (let i = 0; i < options.length; i++) {
@@ -41,24 +42,46 @@ export default () => {
     setTags(tagArray);
   }
 
-  const tagOptions = [];
+  //creates list of unique tags for the dropdown
+  const tagOptionsArrDupl = [];
   articles.map((article) =>
     article.taggings.map((tag) =>
-      tagOptions.push({ value: tag.tag.name, label: tag.tag.name })
+    tagOptionsArrDupl.push(tag.tag.name)
     )
   );
 
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+  let tagOptionsArrUnique = tagOptionsArrDupl.filter(onlyUnique);
+
+  let tagOptions = []
+  tagOptionsArrUnique.map((tag) =>
+      tagOptions.push({ value: tag, label: tag })
+    );
+
+  //performes actions after submit button is hit
   const submitBookmark = useCallback(
     async (event) => {
       event.preventDefault();
       const errCallback = () => toast('Something went wrong!');
+
+      //gets the token value from the browser cookies
+      let cookie = await chrome.cookies.get({
+      url: `${process.env.API_URL}*`,
+      name: 'auth',
+      });
+      const token = cookie.value;
+      console.log(token);
+
       try {
         let result = await createNewExtensionArticle(
           tab.url,
           bookmarkName,
           note,
           user.id,
-          tags
+          tags,
+          token
         );
         if (result.status === 201 || result.status === 200) {
           toast('Bookmark Added!', {

@@ -15,11 +15,16 @@ const _getUserArticles = (articles) => {
 //THUNKS
 
 // CREATE A SINGLE Extension ARTICLE
-export const createNewExtensionArticle = (url, name, note, userId, tags) => {
+export const createNewExtensionArticle = (url, name, note, userId, tags, token) => {
   return axios.post(`${process.env.API_URL}api/articles`, {
     article: { url: url, name: name, note: note, tags: tags },
-    userId,
-  });
+    userId
+  },
+  {
+    headers: {
+        authorization: token
+    }
+});
 };
 
 //get all user tags

@@ -33,6 +33,7 @@ export default () => {
     }
   }, [dispatch, tab]);
 
+  //tracks current tags list
   function handleChange(options) {
     let tagArray = [];
     for (let i = 0; i < options.length; i++) {
@@ -41,15 +42,25 @@ export default () => {
     setTags(tagArray);
   }
 
-  const tagOptions = [];
-  console.log(articles);
+  //creates list of unique tags for the dropdown
+  const tagOptionsArrDupl = [];
   articles.map((article) =>
     article.taggings.map((tag) =>
-      tagOptions.push({ value: tag.tag.name, label: tag.tag.name })
+    tagOptionsArrDupl.push(tag.tag.name)
     )
   );
 
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+  let tagOptionsArrUnique = tagOptionsArrDupl.filter(onlyUnique);
 
+  let tagOptions = []
+  tagOptionsArrUnique.map((tag) =>
+      tagOptions.push({ value: tag, label: tag })
+    );
+
+  //performes actions after submit button is hit
   const submitBookmark = useCallback(
     async (event) => {
       event.preventDefault();

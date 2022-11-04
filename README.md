@@ -4,7 +4,7 @@
 
 This repo contains the code needed to set up the BookIt extension.
 
-In order to use the extension you will need an account with https://book-it-web.herokuapp.com/
+In order to use the extension you will need an account with https://bookit-web-app.herokuapp.com/
 
 ## Current Set Up Options
 

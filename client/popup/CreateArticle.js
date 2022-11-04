@@ -68,7 +68,7 @@ export default () => {
 
       //gets the token value from the browser cookies
       let cookie = await chrome.cookies.get({
-      url: `${process.env.API_URL}*`,
+      url: `https://bookit-web-app.herokuapp.com/*`,
       name: 'auth',
       });
       const token = cookie.value;
@@ -160,7 +160,7 @@ export default () => {
           />
         </div>
       </form>
-      <a href="https://book-it-web.herokuapp.com/" target="_blank">
+      <a href="https://bookit-web-app.herokuapp.com/" target="_blank">
         Go to BookIt Homepage!
       </a>
     </div>

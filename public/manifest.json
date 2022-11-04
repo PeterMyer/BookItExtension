@@ -12,7 +12,7 @@
     "128": "icon128.png" },
   "host_permissions": [
     "http://localhost/*",
-    "https://book-it-web.herokuapp.com/*"
+    "https://bookit-web-app.herokuapp.com/*"
   ],
   "permissions": [
     "tabs",
@@ -20,6 +20,6 @@
     "webRequestBlocking",
     "http://localhost/*",
     "cookies",
-    "https://book-it-web.herokuapp.com/*"
+    "https://bookit-web-app.herokuapp.com/*"
   ]
 }

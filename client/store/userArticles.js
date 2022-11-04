@@ -16,7 +16,7 @@ const _getUserArticles = (articles) => {
 
 // CREATE A SINGLE Extension ARTICLE
 export const createNewExtensionArticle = (url, name, note, userId, tags, token) => {
-  return axios.post(`${process.env.API_URL}api/articles`, {
+  return axios.post(`https://bookit-web-app.herokuapp.com/api/articles`, {
     article: { url: url, name: name, note: note, tags: tags },
     userId
   },
@@ -32,7 +32,7 @@ export const getExtensionUserArticles = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(
-        `${process.env.API_URL}api/userArticles/${id}`
+        `https://bookit-web-app.herokuapp.com/api/userArticles/${id}`
       );
       dispatch(_getUserArticles(data));
     } catch (error) {

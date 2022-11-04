@@ -11,11 +11,11 @@ module.exports = (env) => {
       path: __dirname,
       filename: './public/[name].js',
     },
-    plugins: [
-      new Dotenv({
-        path: `./environments/.env${env.file ? `.${env.file}` : ''}`,
-      }),
-    ],
+    // plugins: [
+    //   new Dotenv({
+    //     path: `./environments/.env${env.file ? `.${env.file}` : ''}`,
+    //   }),
+    // ],
     resolve: {
       extensions: ['.js', '.jsx'],
     },

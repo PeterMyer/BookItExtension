@@ -12,13 +12,15 @@ In order to use the extension you will need an account with https://bookit-web-a
 
 ---
 
-You may either download this repo to its own directory, or you may access a .zip file from [this GoogleDrive Folder](https://drive.google.com/drive/folders/1TgrIyzdR6XfOIlxAeoJUUnp8mCsbMWzh?usp=sharing) and unpack.
+You may either download this repo to its own directory, or you may access a .zip file from [this GoogleDrive Folder](https://drive.google.com/file/d/1dnsOth5xJ_z8XA9fKbk1gGDmVx9ebcG3/view?usp=sharing) and unpack.
 
 ### Install
 
 ---
 
-Once you have the file store locally, open your 'Manage Extensions' directory in Google Chrome, located in the puzzle piece in the top right corner.
+
+Once you have the file store locally, you will need to open the extension directory and run 'npm i' to install the required dependencies. 
+Following install open your 'Manage Extensions' directory in Google Chrome, located in the puzzle piece in the top right corner.
 
 <img width="332" alt="Screen Shot 2021-10-29 at 1 01 25 PM" src="https://user-images.githubusercontent.com/49505960/139481598-ef9e3107-fc3a-48dc-b2b5-57f2f10c2270.png">
 
